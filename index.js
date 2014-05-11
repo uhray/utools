@@ -1,4 +1,4 @@
-var utils = {};
+var utools = module.exports = exports = {};
 
 utools.arg_array = function(args) {
   return Array.prototype.slice.call(args, 0);
@@ -223,4 +223,46 @@ utools.uuid = function() {
 utools.merge = function(a, b) {
   for (var k in b) a[k] = b[k];
   return a;
+}
+
+utools.express_setup = function(app, express) {
+  var get = app.get,
+      post = app.post,
+      put = app.put,
+      del = app.delete;
+
+  app.set('host', process.env.HOST || '127.0.0.1');
+  app.set('view engine', 'jade');
+  app.use(express.logger('dev'))
+  app.use(express.bodyParser());
+  app.use(express.cookieParser());
+  app.use(express.methodOverride());
+  app.use(express.compress());
+  app.listen(process.env.PORT || 3000);
+
+  app.get = function(path) {
+    if (arguments.length < 2) return get.apply(this, arguments);
+    console.log('get route:', path);
+    return get.apply(this, arguments);
+  }
+
+  app.post = function(path) {
+    if (arguments.length < 2) return post.apply(this, arguments);
+    console.log('post route:', path);
+    return post.apply(this, arguments);
+  }
+
+  app.put = function(path) {
+    if (arguments.length < 2) return put.apply(this, arguments);
+    console.log('put route:', path);
+    return put.apply(this, arguments);
+  }
+
+  app.delete = function(path) {
+    if (arguments.length < 2) return del.apply(this, arguments);
+    console.log('del route:', path);
+    return del.apply(this, arguments);
+  }
+
+  return app;
 }
