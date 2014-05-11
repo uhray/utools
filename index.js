@@ -108,6 +108,17 @@ utools.get = function() {
   return m(f);
 };
 
+utools.setget = function() {
+}
+utools.setget.prototype.set = function(key, val) {
+  this.__vars = this.__vars || {};
+  this.__vars[key] = val;
+}
+utools.setget.prototype.get = function(key) {
+  this.__vars = this.__vars || {};
+  return this.__vars[key];
+}
+
 utools.fluent = function() {
   var deps = utools.arg_array(arguments);
 
