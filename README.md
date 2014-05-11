@@ -1,4 +1,4 @@
 UTOOLS
 ======
 
-Install with `npm install crud@git+ssh://git@github.com:uhray/crud.git`.
+Install with `npm install utools@git+ssh://git@github.com:uhray/utools.git`.
