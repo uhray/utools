@@ -220,3 +220,7 @@ utools.uuid = function() {
          s4() + '-' + s4() + s4() + s4();
 }
 
+utools.merge = function(a, b) {
+  for (var k in b) a[k] = b[k];
+  return a;
+}
