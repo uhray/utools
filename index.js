@@ -3,7 +3,7 @@
   var root = this,
       utools = {};
 
-  // Export the Underscore object for **Node.js**
+  // Export the Utools object for **Node.js**
   if (typeof exports !== 'undefined') {
     if (typeof module !== 'undefined' && module.exports) {
       exports = module.exports = utools;
@@ -264,8 +264,8 @@
   // an AMD load request. Those cases could generate an error when an
   // anonymous define() is called outside of a loader request.
   if (typeof define === 'function' && define.amd) {
-    define('underscore', [], function() {
-      return _;
+    define('utools', [], function() {
+      return utools;
     });
   }
 
