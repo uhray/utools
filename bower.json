@@ -1,7 +1,15 @@
 {
   "name": "utools",
+  "main": "index.js",
   "dependencies": {
   },
+  "ignore": [
+    "examples/*",
+    "lib/*",
+    "test/*",
+    "*.md",
+    "package.json"
+  ],
   "private" : true
 }
 
