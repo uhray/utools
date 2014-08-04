@@ -95,7 +95,7 @@
 
           return {
             old: old,
-            new: d[last] = x,
+            current: d[last] = x,
             change: !(x == old)
           }
         };
@@ -270,3 +270,4 @@
   }
 
 }).call(this);
+
