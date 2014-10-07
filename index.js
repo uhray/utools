@@ -51,7 +51,7 @@
 
   utools.find.get = function(list, val, fn) {
     var i = utools.find(list, val, fn);
-    if (i > 0) return list[i];
+    if (i >= 0) return list[i];
     return undefined;
   };
 
